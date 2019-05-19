@@ -1,0 +1,34 @@
+<header class="header-login-signup">
+  
+  <div class="header-limiter">
+
+    <h1><a routerLink="/produtos/">Komr<span>ade</span></a></h1>
+
+    <nav>
+      <a routerLink="/produtos/">Produtos</a>
+    </nav>
+
+    <ul>
+      <div *ngIf = "!isUserLogged">     
+        <li><a routerLink="/login/">Login</a></li>
+        <li><a routerLink="/usuarios/new/">Cadastro</a></li>
+      </div>
+      <div *ngIf = "isUserLogged">
+          <li><a >Bem vindo {{nome}}!</a></li> 
+          <li><a routerLink="/minhaconta/">Minha Conta</a></li> 
+          <li><a href="" (click) = "Deslogar()">Sair</a></li>
+        </div>
+    </ul>
+
+  </div>
+
+</header>
+<p *ngFor="let produto of carrinho.produtos">
+  <b style="font-size:20px;">{{produto.nome}}</b><br/>
+  Valor : <span>  R$:{{produto.valor}}</span><br />
+  <br>    
+  Descrição : <span> {{produto.descricao}}</span><br />
+  <br>       
+  <button (click)="removerDoCarrinho(produto)">Remover do Carrinho</button>  
+</p>
+Total: R$ {{carrinho.total}}

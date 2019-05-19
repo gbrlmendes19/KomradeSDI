@@ -1,0 +1,40 @@
+<header class="header-login-signup">
+    
+      <div class="header-limiter">
+    
+        <h1><a routerLink="/produtos/">Komr<span>ade</span></a></h1>
+    
+        <nav>
+          <a routerLink="/produtos/">Produtos</a>
+        </nav>
+    
+        <ul>       
+          <li><a routerLink="/login">Login</a></li>
+        </ul>
+    
+      </div>
+    
+    </header>
+    <br>
+<form *ngIf="usuarioForm" [formGroup]="usuarioForm" (ngSubmit)="onSubmit()">
+
+  <input type="hidden" formControlName="id">
+  <label>
+    Login:
+    <input type="text" formControlName="email">
+  </label>
+
+  <label>
+    Senha:
+    <input type="password" formControlName="senha">
+  </label>
+  <label>
+      Confirmar Senha:
+      <input type="password" formControlName="confirmarSenha">
+  </label>
+        -
+  <button type="submit">Cadastrar</button>
+  
+</form>
+
+<a routerLink="/produtos">Voltar</a>

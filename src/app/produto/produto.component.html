@@ -1,0 +1,43 @@
+<header class="header-login-signup">
+
+	<div class="header-limiter">
+
+		<h1><a routerLink="/produtos/">Komr<span>ade</span></a></h1>
+
+		<nav>
+            <a routerLink="/produtos/">Produtos</a>
+            <a  *ngIf="isUserAdmin" routerLink="/produtos/new"> Cadastrar Produto </a>
+		</nav>
+
+		<ul>
+      <div *ngIf = "!isUserLogged">     
+        <li><a routerLink="/login/">Login</a></li>
+        <li><a routerLink="/usuarios/new/">Cadastro</a></li>
+      </div>
+      <div *ngIf = "isUserLogged">
+          <li><a >Bem vindo {{nome}}!</a></li> 
+          <li><a routerLink="/minhaconta/">Minha Conta</a></li>                
+          <li><a routerLink="/carrinho/">Carrinho</a></li>      
+          <li><a href="" (click) = "Deslogar()">Sair</a></li>
+        </div>
+		</ul>
+
+	</div>
+
+</header>
+<table>
+    <div  style="display: inline;" *ngFor="let produto of produtos">
+        <div>
+            <b routerLink="/produto/{{produto.id}}" style="font-size:20px;">{{produto.nome}}</b><br/>
+            Valor : <span>  R$:{{produto.valor}}</span><br />
+            <br>    
+            Descrição : <span> {{produto.descricao}}</span><br />
+            <br>                
+            <button *ngIf="isUserLogged" style="margin-right: 5px;"(click)="adicionarAoCarrinho(produto)">Adicionar ao Carrinho</button>
+            <button  *ngIf="isUserAdmin" style="margin-right: 5px;" routerLink="/produtos/edit/{{produto.id}}">Editar</button>
+            <button  *ngIf="isUserAdmin" style="margin-right: 5px;" (click)="deletar(produto.id)">Deletar</button>
+            <br>
+            <br>
+          </div>
+      </div>
+</table>

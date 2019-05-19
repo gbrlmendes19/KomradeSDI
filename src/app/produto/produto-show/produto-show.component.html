@@ -1,0 +1,58 @@
+<header class="header-login-signup">
+    
+      <div class="header-limiter">
+    
+        <h1><a routerLink="/produtos/">Komr<span>ade</span></a></h1>
+    
+        <nav>
+                <a routerLink="/produtos/">Produtos</a>
+                <a  *ngIf="isUserAdmin" routerLink="/produtos/new"> Cadastrar Produto </a>
+        </nav>
+    
+        <ul>
+          <div *ngIf = "!isUserLogged">     
+            <li><a routerLink="/login/">Login</a></li>
+            <li><a routerLink="/usuarios/new/">Cadastro</a></li>
+          </div>
+          <div *ngIf = "isUserLogged">
+              <li><a >Bem vindo {{nome}}!</a></li> 
+              <li><a routerLink="/minhaconta/">Minha Conta</a></li>                
+              <li><a routerLink="/carrinho/">Carrinho</a></li>      
+              <li><a href="" (click) = "Deslogar()">Sair</a></li>
+            </div>
+        </ul>
+    
+      </div>
+    
+    </header>
+<p>
+  <b style="font-size:20px;">{{produto.nome}}</b><br/>
+</p>
+<p>
+  Descrição: {{produto.descricao}}
+</p>
+<p>
+  Valor: R$ {{produto.valor}}
+</p>
+<p>
+  Plataforma: {{produto.plataforma}}
+</p>
+<p>
+  Gênero: {{produto.genero}}
+</p>
+<p>
+  Estudio: {{produto.estudio}}
+</p>
+<p>
+  Idade Recomendada: {{produto.idadeRecomendada}}
+</p>
+<p>
+  Data de Lançamento: {{data}}
+</p>
+<p>
+  Resolução Máxima: {{resolucao}}
+</p>
+<p>
+  Tipo: {{produto.tipo}}
+</p>
+

@@ -1,0 +1,9 @@
+Usuarios
+<table>
+  <tr *ngFor="let usuario of usuarios">
+    {{usuario.nome}}
+    <a routerLink="/usuarios/{{usuario.id}}">Editar</a>
+    <a routerLink="/usuarios/{{usuario.id}}">Deletar</a>
+  </tr>
+</table>
+<a routerLink="/usuarios/new">Novo Usuário</a>

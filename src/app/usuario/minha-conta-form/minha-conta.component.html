@@ -1,0 +1,135 @@
+<header class="header-login-signup">
+    
+      <div class="header-limiter">
+    
+        <h1><a routerLink="/produtos/">Komr<span>ade</span></a></h1>
+    
+        <nav>
+          <a routerLink="/produtos/">Produtos</a>
+        </nav>
+    
+        <ul>
+          <div *ngIf = "!isUserLogged">     
+            <li><a routerLink="/login/">Login</a></li>
+            <li><a routerLink="/usuarios/new/">Cadastro</a></li>
+          </div>
+          <div *ngIf = "isUserLogged">
+              <li><a >Bem vindo {{nome}}!</a></li>                
+              <li><a routerLink="/carrinho/">Carrinho</a></li>      
+              <li><a href="" (click) = "Deslogar()">Sair</a></li>
+            </div>
+        </ul>
+      </div>
+    </header>
+    <br>
+<form *ngIf="enderecoForm" [formGroup]="enderecoForm" (ngSubmit)="onSubmit()">
+    <a style="font-size:25px;">Minha Conta</a>
+  <br>
+  <br>
+  <div *ngIf = "!possuiEndereco">
+    <a style="font-size:25px;">Cadastrar Endereço</a>
+    <br>
+    <br>
+    <input type="hidden" formControlName="id">
+    <label>
+      CEP:
+      <input type="text" formControlName="cep">
+    </label>
+    <label>
+      Estado:
+      <input type="text" formControlName="estado">
+    </label>
+    <label>
+      Cidade:
+      <input type="text" formControlName="cidade">
+    </label>
+    <label>
+      Bairro:
+      <input type="text" formControlName="bairro">
+    </label>
+    <label>
+      Logradouro:
+      <input type="text" formControlName="logradouro">
+    </label>
+    <br>
+    <br>
+    <label>
+      Complemento:
+      <input type="text" formControlName="complemento">
+    </label>
+    <label>
+      Numero:
+      <input type="text" formControlName="numero">
+    </label>
+    <label>
+      Responsável:
+      <input type="text" formControlName="responsavel">
+    </label>
+    <br>
+    <br>  
+    <button type="submit">Cadastrar</button>
+    <br>
+    <br>
+</div>
+<div *ngIf="possuiEndereco" >
+  <a style="font-size:25px;">Endereço</a>
+      <br>
+      <br>
+      <label>
+        CEP: {{endereco.cep}}
+      </label>
+      <br>
+      <br>
+      
+      
+      <label>
+        Estado: {{endereco.estado}}
+      </label>
+      <br>
+      <br>
+      
+      
+      <label>
+        Cidade: {{endereco.cidade}}
+      </label>
+      <br>
+      <br>
+      
+      
+      <label>
+        Bairro: {{endereco.bairro}}
+      </label>
+      <br>
+      <br>
+      
+      <label>
+        Logradouro: {{endereco.logradouro}}
+      </label>
+      <br>
+      <br>
+      
+
+      <label>
+        Complemento: {{endereco.complemento}}
+      </label>
+      <br>
+      <br>
+      
+      <label>
+        Numero: {{endereco.numero}}
+      </label>
+      <br>
+      <br>
+      
+      <label>
+        Responsável: {{endereco.responsavel}}
+      </label>
+      <br>
+      <br>
+      
+      <button type="button" (click) = "excluir()">Excluir Endereço</button>
+      <br>
+</div>
+</form>
+<br>
+<a routerLink="/produtos">Voltar</a>

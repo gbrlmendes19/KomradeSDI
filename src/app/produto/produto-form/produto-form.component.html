@@ -1,0 +1,108 @@
+<header class="header-login-signup">
+
+  <div class="header-limiter">
+
+    <h1>
+      <a routerLink="/produtos/">Komr<span>ade</span>
+      </a>
+    </h1>
+
+    <nav>
+      <a routerLink="/produtos/">Produtos</a>
+    </nav>
+
+    <ul>
+      <li>
+        <a routerLink="/carrinho/">Carrinho</a>
+      </li>
+      <li>
+        <a routerLink="/login/">Login</a>
+      </li>
+      <li>
+        <a routerLink="/usuarios/new/">Cadastro</a>
+      </li>
+    </ul>
+
+  </div>
+  <br>
+  <br>
+</header>
+
+<form *ngIf="produtoForm" [formGroup]="produtoForm" (ngSubmit)="onSubmit()">
+  <br>
+  <input type="hidden" formControlName="id">
+  <label>
+    Nome:
+    <input type="text" formControlName="nome">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Descrição:
+    <input type="text" formControlName="descricao">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Valor:
+    <input type="text" formControlName="valor">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Plataforma:
+    <input type="text" formControlName="plataforma">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Genero:
+    <input type="text" formControlName="genero">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Estudio:
+    <input type="text" formControlName="estudio">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Idade Recomendada:
+    <input type="text" formControlName="idadeRecomendada">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Data de Lançamento:
+    <input type="date" formControlName="dataLançamento">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Resolução Máxima:
+    <input type="text" formControlName="resoluçãoMaxima">
+  </label>
+  <br>
+  <br>
+
+  <label>
+    Tipo:
+    <input type="text" formControlName="tipo">
+  </label>
+  <br>
+  <br>
+
+  <button type="submit">Cadastrar</button>
+
+</form>
+
+<a routerLink="/produtos">Voltar</a>
