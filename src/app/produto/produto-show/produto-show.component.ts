@@ -45,7 +45,7 @@ export class ProdutoShowComponent implements OnInit {
     }
   }
   isLogged() {
-    if (localStorage.usuario_nome !== '') {
+    if (localStorage.usuario_nome && localStorage.usuario_nome !== '') {
       this.isUserLogged = true;
       this.nome = localStorage.usuario_nome;
     }
