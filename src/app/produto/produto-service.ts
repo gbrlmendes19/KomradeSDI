@@ -9,7 +9,7 @@ import { Subscription } from 'rxjs/internal/Subscription';
 @Injectable()
 export class ProdutoService {
 
-    private productsUrl = 'https://localhost:44355/produto/';    
+    private productsUrl = 'https://komradeapi.azurewebsites.net/produto/';    
     produtos: Produto[];
     subscriptionProdutos: Subscription;
     constructor(private http: Http) { }

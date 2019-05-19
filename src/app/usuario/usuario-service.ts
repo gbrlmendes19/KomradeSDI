@@ -10,8 +10,8 @@ import { Md5 } from 'ts-md5';
 @Injectable()
 export class UsuarioService {
 
-    private userUrl = 'https://localhost:44355/usuario/';   
-    private enderecoUrl = 'https://localhost:44355/endereco/';    
+    private userUrl = 'https://komradeapi.azurewebsites.net/usuario/';   
+    private enderecoUrl = 'https://komradeapi.azurewebsites.net/endereco/';    
     
     usuarios: Usuario[]
     subscription: Subscription;
