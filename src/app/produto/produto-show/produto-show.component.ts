@@ -17,7 +17,7 @@ export class ProdutoShowComponent implements OnInit {
   nome: string;
   id: any;
   resolucao: string;
-  data: Date;
+  data: string;
 
   constructor(private service: ProdutoService, private route: ActivatedRoute,private datepipe: DatePipe ) { }
 
@@ -30,7 +30,7 @@ export class ProdutoShowComponent implements OnInit {
         this.service.getProductsbyId(this.id).subscribe(resposta => {
           this.produto = resposta.json();
           this.resolucao = this.produto.resoluçãoMaxima;
-          this.data = new Date(this.datepipe.transform(this.produto.dataLançamento,'dd/MM/yyyy'));
+          this.data = this.datepipe.transform(this.produto.dataLançamento,'dd/MM/yyyy');
         });
       }
     });

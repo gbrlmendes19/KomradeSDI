@@ -1,31 +1,27 @@
 <header class="header-login-signup">
-
+    
   <div class="header-limiter">
 
-    <h1>
-      <a routerLink="/produtos/">Komr<span>ade</span>
-      </a>
-    </h1>
+    <h1><a routerLink="/produtos/">Komr<span>ade</span></a></h1>
 
     <nav>
-      <a routerLink="/produtos/">Produtos</a>
+            <a routerLink="/produtos/">Produtos</a>
+            <a  *ngIf="isUserAdmin" routerLink="/produtos/new"> Cadastrar Produto </a>
     </nav>
 
     <ul>
-      <li>
-        <a routerLink="/carrinho/">Carrinho</a>
-      </li>
-      <li>
-        <a routerLink="/login/">Login</a>
-      </li>
-      <li>
-        <a routerLink="/usuarios/new/">Cadastro</a>
-      </li>
+      <div *ngIf = "!isUserLogged">     
+        <li><a routerLink="/login/">Login</a></li>
+        <li><a routerLink="/usuarios/new/">Cadastro</a></li>
+      </div>
+      <div *ngIf = "isUserLogged">
+          <li><a >Bem vindo {{nome}}!</a></li> 
+          <li><a routerLink="/minhaconta/">Minha Conta</a></li>                
+          <li><a routerLink="/carrinho/">Carrinho</a></li>      
+          <li><a href="" (click) = "Deslogar()">Sair</a></li>
+        </div>
     </ul>
-
   </div>
-  <br>
-  <br>
 </header>
 
 <form *ngIf="produtoForm" [formGroup]="produtoForm" (ngSubmit)="onSubmit()">

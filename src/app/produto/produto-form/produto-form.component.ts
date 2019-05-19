@@ -24,10 +24,15 @@ export class ProdutoFormComponent implements OnInit {
   produtoForm: FormGroup;
   edit: boolean = false;
   id:any;
+  isUserAdmin: boolean = false;
+  isUserLogged: boolean = false;
+  nome: string;
 
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private service: ProdutoService, private datepipe: DatePipe) { }
 
   ngOnInit() {
+    this.isAdmin();
+    this.isLogged();
     this.route.paramMap.subscribe(params => {
       this.produtoForm = this.fb.group({
         id:[0],
@@ -68,7 +73,29 @@ export class ProdutoFormComponent implements OnInit {
       }
     });
   }
-  
+  isAdmin() {
+    if (localStorage.usuario_tipo == 'admin') {
+      this.isUserAdmin = true;
+    }
+    else {
+      this.isUserAdmin = false;
+    }
+  }
+  isLogged() {
+    if (localStorage.usuario_nome !== '') {
+      this.isUserLogged = true;
+      this.nome = localStorage.usuario_nome;
+    }
+    else {
+      this.isUserLogged = false;
+    }
+  }
+  Deslogar() {
+    localStorage.usuario_nome = '';
+    localStorage.usuario_tipo = '';
+    this.isLogged();
+  }
+
   onSubmit(){
     if(this.edit){
     this.service.updateProduct(this.produtoForm.value, this.id);    
